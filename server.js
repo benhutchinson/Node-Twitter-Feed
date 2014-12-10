@@ -49,7 +49,7 @@ app.get('/jason', function(request, response){
   response.json({"attila": "legend", "beanie_hat": "the best"});
 });
 
-server.listen(process.env.PORT || 3000, function(){
+server.listen(port, function(){
   console.log("Server listening");
 });
 
