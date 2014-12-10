@@ -3,8 +3,7 @@ var app = express();
 var bodyParser = require("body-parser");
 var server = require('http').createServer(app);
 var Twit = require('twit');
-
-
+var port = process.env.PORT || 3000;
 
 var T = new Twit({
     consumer_key:         process.env.TWITTER_CONSUMER_KEY
