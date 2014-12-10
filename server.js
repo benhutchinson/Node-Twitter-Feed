@@ -49,8 +49,8 @@ app.get('/jason', function(request, response){
   response.json({"attila": "legend", "beanie_hat": "the best"});
 });
 
-server.listen(3000, function(){
-  console.log("Server listening on port 3000");
+server.listen(process.env.PORT || 3000, function(){
+  console.log("Server listening");
 });
 
 module.exports = server;
