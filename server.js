@@ -6,13 +6,11 @@ var Twit = require('twit');
 var port = process.env.PORT || 3000;
 
 var T = new Twit({
-    consumer_key:         process.env.TWITTER_CONSUMER_KEY
-  , consumer_secret:      process.env.TWITTER_CONSUMER_SECRET
-  , access_token:         process.env.TWITTER_ACCESS_TOKEN
-  , access_token_secret:  process.env.TWITTER_ACCESS_TOKEN_SECRET
+  consumer_key:         process.env.TWITTER_CONSUMER_KEY, 
+  consumer_secret:      process.env.TWITTER_CONSUMER_SECRET, 
+  access_token:         process.env.TWITTER_ACCESS_TOKEN, 
+  access_token_secret:  process.env.TWITTER_ACCESS_TOKEN_SECRET
 });
-
-
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.json());
@@ -21,23 +19,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.get('/twitter/:test',function(req,res){
   var twit_stream = req.params.test;
 
-  // T.get('search/tweets', { q: twit_stream + ' since:2014-12-10', count: 1 }, function(err, data, response) {
-  //    render(twit_stream, data.statuses[0].text)
-  //   });
-
-  // var render = function(name, content){
-  //   res.render('index', {name: name, content: content } );
-  // }
-
-
-  T.get('search/tweets', { q: twit_stream + ' since:2014-12-10', count: 3 }, function(err, data, response) {
-     console.log(data.statuses)
-     render(twit_stream, data.statuses)
+  T.get('search/tweets', { q: twit_stream + ' since:2014-12-10', count: 1 }, function(err, data, response) {
+     render(twit_stream, data.statuses);
+     console.log(data.statuses);
     });
 
   var render = function(name, content){
     res.render('index', {name: name, content: content } );
-  }
+  };
 
 });
 

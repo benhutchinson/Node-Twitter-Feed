@@ -1,7 +1,7 @@
 <html>
 <body>
 <p>
-Hello world test
+Hello world test attila
 </p>
 
 
@@ -12,9 +12,11 @@ Hello world test
 
 
 
-<p>
+<p class="feed">
 <% content.forEach(function(item){ %>
-  <p><%= item.text %></p>
+  <p id="individual_feed"><%= item.text %></p>
+  <p id="individual_feed"><%= item.created_at %></p>
+  <p id="individual_feed"><%= item.user.id %></p>
 <% }) %>
 </p>
 
